@@ -1,3 +1,26 @@
+# Local development setup
+
+1. Create database:
+
+       CREATE DATABSE tiny_url_development;
+       CREATE DATABSE tiny_url_test;
+       CREATE DATABSE tiny_url; // this one is not neccessary since no prod
+
+
+1. Install gems, rake, and annotate
+
+        bundle
+        rake db:migrate
+        annoatate
+
+
+1. Launch the server with `rails s`
+
+1. Run tests with `rspec`
+
+Below is what I wrote before starting working on the projects. You can read it if you want
+---------------------------------------------------------------
+
 # Grading Criteria
 - It should allow users to submit a URL which will then be shortened and can be shared.
 - When users click on the short URL they are redirected to the long URL.
