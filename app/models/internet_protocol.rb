@@ -1,0 +1,2 @@
+class InternetProtocol < ApplicationRecord
+end
