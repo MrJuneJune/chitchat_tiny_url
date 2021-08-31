@@ -10,3 +10,25 @@
         .button
           = f.submit
       #result
+javascript:
+  window.addEventListener("load", () => {
+    const element = document.querySelector("#new_token_url");
+    const result = document.querySelector("#result");
+
+    function createLinkTo(link, div) {
+      div.innerHTML = ''; // TODO: Fix this part
+      var a = document.createElement('a');
+      a.setAttribute('href',link);
+      a.innerHTML = link;
+      div.appendChild(a)
+    }
+
+    element.addEventListener("ajax:success", (event) => {
+      const [_data, _status, xhr] = event.detail;
+      createLinkTo(_data["new_url"], result);
+    });
+    element.addEventListener("ajax:error", (event) => {
+      const [_data, _status, xhr] = event.detail;
+      result.innerHTML = _data["error"]
+    });
+  });
