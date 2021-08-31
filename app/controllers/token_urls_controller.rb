@@ -1,5 +1,6 @@
 class TokenUrlsController < ApplicationController
   def new
+    @token_url = TokenUrl.new
   end
   
   def create
@@ -9,5 +10,13 @@ class TokenUrlsController < ApplicationController
   end
   
   def index
+  end
+
+  private
+
+  def token_url_params
+    params[:token_url].permit(
+      :url
+    )
   end
 end

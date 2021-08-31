@@ -1,2 +1,12 @@
-#test
-  | Test
+.d-flex.justify-content-center.align-items-center.h-100
+  .card
+    .card-header
+      | Create Token URL
+    .card-body
+      =form_with(model: @token_url, url: token_urls_path, id: "new_token_url", local: false) do |f| 
+        .url.d-flex
+          | Url: 
+          = f.url_field :url
+        .button
+          = f.submit
+      #result
