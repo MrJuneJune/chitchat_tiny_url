@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 class TokenUrlsController < ApplicationController
-  before_action :set_token_url, only: [:show, :index]
+  before_action :set_token_url, only: %i[show index]
 
   def new
     @token_url = TokenUrl.new
   end
-  
+
   def create
     @token_url = TokenUrl.find_or_create_by(token_url_params)
     render json: { new_url: token_url }
-  rescue => e
+  rescue StandardError => e # TODO: better error 
     render json: { error: e }, status: 400
   end
 
@@ -17,15 +19,15 @@ class TokenUrlsController < ApplicationController
       @token_url.internet_protocols.create(address: request.remote_ip)
       redirect_to @token_url.url
     else
-      redirect_to root_url, flash: { error: "Token do not exist" } 
+      redirect_to root_url, flash: { error: 'Token do not exist' }
     end
   end
-  
+
   def index
     if @token_url
       @ip_addresses = @token_url.internet_protocols
     else
-      redirect_to root_url, flash: { error: "Token do not exist" } 
+      redirect_to root_url, flash: { error: 'Token do not exist' }
     end
   end
 

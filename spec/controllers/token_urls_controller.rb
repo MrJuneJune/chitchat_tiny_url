@@ -16,7 +16,7 @@ describe TokenUrlsController, type: :controller do
       {
         token_url:
           {
-            url: 'https://test.com',
+            url: 'https://test.com'
           }
       }
     end
@@ -24,7 +24,7 @@ describe TokenUrlsController, type: :controller do
       {
         token_url:
           {
-            url: '',
+            url: ''
           }
       }
     end
@@ -57,33 +57,33 @@ describe TokenUrlsController, type: :controller do
   end
 
   describe '#show' do
-    let(:token_url) { create(:token_url, url: "https://google.com", token: "abcdef") }
+    let(:token_url) { create(:token_url, url: 'https://google.com', token: 'abcdef') }
     it 'redirects to url if the token exists in the db' do
       token_url.touch
-      get :show, params: { token: "abcdef" }
+      get :show, params: { token: 'abcdef' }
       expect(response).to redirect_to(token_url.url)
     end
 
     it 'redirects to root url if the token does not exist in the db' do
       token_url.touch
-      get :show, params: { token: "fails" }
+      get :show, params: { token: 'fails' }
       expect(response).to redirect_to(root_path)
     end
   end
 
   describe '#index' do
-    let(:token_url) { create(:token_url, url: "https://google.com", token: "abcdef") }
-    let(:internet_protocol) { create(:internet_protocol, token_url: token_url)}
+    let(:token_url) { create(:token_url, url: 'https://google.com', token: 'abcdef') }
+    let(:internet_protocol) { create(:internet_protocol, token_url: token_url) }
 
     it 'shows all ip address related to this slug' do
       token_url.touch
-      get :index, params: { token: "abcdef" }
+      get :index, params: { token: 'abcdef' }
       expect(response.code).to eq('200')
     end
 
     it 'redirects to root url if the token does not exist in the db' do
       token_url.touch
-      get :show, params: { token: "fails" }
+      get :show, params: { token: 'fails' }
       expect(response).to redirect_to(root_path)
     end
   end

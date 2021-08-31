@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: token_urls
@@ -18,6 +20,6 @@ class TokenUrl < ApplicationRecord
 
   def generate_token
     self.token = SecureRandom.hex(3)
-    generate_token if TokenUrl.exists?(self.token)
+    generate_token if TokenUrl.exists?(token)
   end
 end
