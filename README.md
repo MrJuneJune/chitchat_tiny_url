@@ -7,10 +7,11 @@
        CREATE DATABSE tiny_url; // this one is not neccessary since no prod
 
 
-1. Install gems, rake migrations, annotate models if you want to read, yarn installs for webpack
+1. Install gems, rake migrations, seeds sample data, annotate models if you want to read, yarn installs for webpack
 
         bundle
         rake db:migrate
+        rake db:seed
         annoatate
         yarn install --check-files
 
