@@ -10,6 +10,7 @@
 #
 FactoryBot.define do
   factory :internet_protocol do
-    
+    association :token_url
+    address { Faker::Internet.ip_v4_address }
   end
 end

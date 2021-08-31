@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-image: url("https://static9.depositphotos.com/1554103/1115/i/950/depositphotos_11155334-stock-photo-white-light-blue-background-alanyja.jpg");
+}

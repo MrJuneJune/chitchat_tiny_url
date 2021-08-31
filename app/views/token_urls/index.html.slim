@@ -1,18 +1,20 @@
-table.table
-  thead
-    tr
-      th scope="col"  ID 
-      th scope="col"  Address
-      th scope="col"  Viewed At
-  tbody
-    - @ip_addresses.each do | ip_address |
-      tr
-        th scope="row"
-          = ip_address.id
-        td
-          = ip_address.address
-        td
-          = ip_address.created_at
-= link_to root_url do
-  button
-    | "Create More TokenUrl"
+.d-flex.justify-content-center.align-items-center.h-100
+  .all
+    table.table
+      thead
+        tr
+          th scope="col"  ID 
+          th scope="col"  Address
+          th scope="col"  Viewed At
+      tbody
+        - @ip_addresses.each do | ip_address |
+          tr
+            th scope="row"
+              = ip_address.id
+            td
+              = ip_address.address
+            td
+              = ip_address.created_at
+    = link_to root_url do
+      button
+        | "Create More TokenUrl"
