@@ -1,0 +1,2 @@
+class TokenUrl < ApplicationRecord
+end

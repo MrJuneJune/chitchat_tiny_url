@@ -36,14 +36,14 @@ Testing
 - Bootstrap
 
 #### DB
-    TinyURL
+    TokenUrl
       url, unique, not null
       token, unique, not null, auto_created , 5 length?
       timestamps, not null
 
     InternetProtocol
       address, not null
-      tinyurl_id, fk
+      token_url_id, fk
       timestamp, not null
 
 #### Controller
